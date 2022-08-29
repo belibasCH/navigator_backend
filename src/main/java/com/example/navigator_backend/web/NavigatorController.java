@@ -29,10 +29,10 @@ public class NavigatorController {
 
     @CrossOrigin
     @PostMapping
-    public ResponseEntity<NavigatorDTO> createcreateNavigator(@RequestBody NavigatorDTO dto) {
+    public ResponseEntity<NavigatorDTO> createNavigator(@RequestBody NavigatorDTO dto) {
         try {
             Navigator navigator = new Navigator("", dto.questionText(), new ArrayList<>());
-            navigator = navigatorRepository.savePoll(navigator);
+            navigator = navigatorRepository.saveNavigator(navigator);
             NavigatorDTO navigatorDto = new NavigatorDTO(navigator.id(), dto.questionText());
             return ResponseEntity.ok().body(navigatorDto);
         } catch (Exception e) {

@@ -15,7 +15,7 @@ public class NavigatorRepository {
     private Logger log = LoggerFactory.getLogger(NavigatorRepository.class);
     private List<Navigator> navigators = new ArrayList<Navigator>();
 
-    public Navigator savePoll(Navigator p) {
+    public Navigator saveNavigator(Navigator p) {
         Navigator poll = new Navigator(Integer.toString(navigators.size()), p.question(), p.answers());
         navigators.add(poll);
         log.debug("Successfully added poll[{}] to repository", poll.id());
