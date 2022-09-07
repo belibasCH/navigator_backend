@@ -16,7 +16,7 @@ public class NavigatorRepository {
     private List<Navigator> navigators = new ArrayList<Navigator>();
 
     public Navigator saveNavigator(Navigator p) {
-        Navigator poll = new Navigator(Integer.toString(navigators.size()), p.question(), p.answers());
+        Navigator poll = new Navigator(Integer.toString(navigators.size()), p.person(), p.projekt(), p.tool());
         navigators.add(poll);
         log.debug("Successfully added poll[{}] to repository", poll.id());
         return poll;
@@ -33,10 +33,15 @@ public class NavigatorRepository {
         }
         return last;
     }
+    //todo achtung hier rückgabe könnte falsch sein
+    public Navigator findNavigator(int id){
+        return navigators.get(id);
+    }
 
     public void reset() {
         this.navigators = new ArrayList<Navigator>();
         log.info("Reset successfully");
     }
+
 
 }
